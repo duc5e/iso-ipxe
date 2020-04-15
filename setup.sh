@@ -8,6 +8,7 @@ git clone https://github.com/ipxe/ipxe.git ipxe_build
 git clone https://github.com/duc5e/iso-ipxe.git ipxe
 apt-get -y install nasm
 apt-get -y install uuid-dev
+cd /usr/local/src/
 wget https://mirrors.edge.kernel.org/pub/linux/utils/boot/syslinux/Testing/6.04/syslinux-6.04-pre1.tar.gz
 tar zxf syslinux-6.04-pre1.tar.gz
 cd syslinux-6.04-pre1
