@@ -1,5 +1,6 @@
 apt update
 apt-get install -y build-essential liblzma-dev gcc-aarch64-linux-gnu
+sudo apt-get install gcc-aarch64-linux-gnu
 apt-get install lib32z1-dev
 apt-get install libiberty-dev
 set -e
