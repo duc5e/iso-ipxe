@@ -6,13 +6,13 @@ set fg_gre ${esc:string}[32m
 set fg_red ${esc:string}[31m
 set fg_cya ${esc:string}[36m
 set fg_whi ${esc:string}[37m
-set HTTPS_ERR HTTPS appears to have failed... attempting HTTP
-set HTTP_ERR HTTP has failed, localbooting...
+set HTTP_ERR HTTP appears to have failed... attempting HTTPS
+set HTTPS_ERR HTTPS has failed, localbooting...
 set version 10.0
 set ipxe_cloud_config packet
 
 :start
-echo ${bold}${fg_gre}duc.pw ${fg_whi}v${version} for ${fg_red}packet.net${fg_whi}${boldoff}
+echo ${bold}${fg_gre}pdns.win ${fg_whi}v${version} for ${fg_red}packet.net${fg_whi}${boldoff}
 prompt --key m --timeout 4000 Hit the ${bold}m${boldoff} key to open failsafe menu... && goto failsafe || goto dhcp
 
 :dhcp
@@ -21,7 +21,7 @@ dhcp || goto netconfig
 goto menu
 
 :failsafe
-menu duc.pw Failsafe Menu
+menu pdns.win Failsafe Menu
 item localboot Boot to local drive
 item netconfig Manual network configuration
 item retry Retry boot
@@ -42,15 +42,15 @@ echo -n Subnet mask: && read net${net}/netmask
 echo -n Gateway: && read net${net}/gateway
 echo -n DNS: && read dns
 ifopen net${net}
-echo Attempting chainload of duc.pw...
+echo Attempting chainload of pdns.win...
 goto menu || goto failsafe
 
 :menu
 set conn_type http
-chain --autofree http://boot.duc.pw/menu.ipxe || echo ${HTTP_ERR}
+chain --autofree http://boot.pdns.win/menu.ipxe || echo ${HTTP_ERR}
 sleep 5
 set conn_type https
-chain --autofree https://boot.duc.pw/menu.ipxe || echo ${HTTPS_ERR}
+chain --autofree https://boot.pdns.win/menu.ipxe || echo ${HTTPS_ERR}
 goto localboot
 
 :localboot
